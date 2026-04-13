@@ -23,7 +23,7 @@ const BookDetail = () => {
           publishDate: book.publishDate || book['出版社（日期）'],
           isbn: book.isbn || book.ISBN || book['ISBN'] || Math.random().toString(36).substr(2, 9),
           category: book.category || book['分类'],
-          introduction: book.introduction || book['简介'] || '暂无简介',
+          introduction: book.introduction || book['简介'] || book.summary || '暂无简介',
           catalog: book.catalog || book['目录'] || '暂无目录'
         }));
         // 查找对应的书籍
