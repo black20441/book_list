@@ -2,6 +2,12 @@
 
 这是一个基于React和Tailwind CSS开发的个人电子书单网站，用于展示和管理个人阅读书单。
 
+## 快速访问
+
+扫描下方二维码访问电子书单网站：
+
+![电子书单二维码](./QR.png)
+
 ## 项目功能
 
 - 📚 展示书籍列表，支持响应式布局
@@ -81,6 +87,20 @@ npm run build
 
 ## 部署
 
+### Netlify部署（推荐）
+
+1. **登录Netlify**：访问 [https://www.netlify.com](https://www.netlify.com) 并登录
+2. **连接GitHub仓库**：
+   - 点击「Add new site」→「Import an existing project」
+   - 选择「GitHub」作为Git provider
+   - 授权Netlify访问你的GitHub账号
+   - 在仓库列表中找到并选择 `book_list` 仓库
+3. **配置部署设置**：
+   - **Build command**：输入 `npm run build`
+   - **Publish directory**：输入 `dist`
+   - 点击「Deploy site」按钮
+4. **获取访问链接**：部署完成后，Netlify会生成一个访问链接
+
 ### GitHub Pages
 
 1. 将 `dist` 目录内容推送到GitHub仓库
@@ -90,8 +110,8 @@ npm run build
 ### 其他静态托管服务
 
 - **Vercel**：直接导入GitHub仓库，自动部署
-- **Netlify**：连接GitHub仓库，设置构建命令为 `npm run build`
 - **AWS S3**：上传 `dist` 目录内容到S3存储桶，启用静态网站托管
+- **阿里云OSS**：创建存储桶并开启静态网站托管，上传 `dist` 目录内容
 
 ## 数据更新
 
