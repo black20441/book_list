@@ -87,8 +87,15 @@ const BookDetail = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-1">
-            <div className="bg-gray-100 rounded-lg p-4 flex items-center justify-center h-64">
-              <span className="text-gray-400">书籍封面</span>
+            <div className="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden">
+              <img 
+                src={`/images/${isbn}.jpg`} 
+                alt={book.title} 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/300x400?text=暂无封面';
+                }}
+              />
             </div>
           </div>
           
