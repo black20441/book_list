@@ -3,14 +3,19 @@ import { Link } from 'react-router-dom';
 
 const BookCard = ({ book }) => {
   // 处理中文字段名
-  const title = book.title || book['书名'];
-  const author = book.author || book['作者'];
-  const publisher = book.publisher || book['出版社（日期）'];
-  const publishDate = book.publishDate || book['出版社（日期）'];
+  const title = book.title || book['书名'] || book['涔﹀悕'];
+  const author = book.author || book['作者'] || book['浣滆€?'];
+  const publisher = book.publisher || book['出版社（日期）'] || book['鍑虹増绀撅紙鏃ユ湡锛?'];
+  const publishDate = book.publishDate || book['出版社（日期）'] || book['鍑虹増绀撅紙鏃ユ湡锛?'];
   const isbn = book.isbn || book.ISBN || book['ISBN'] || Math.random().toString(36).substr(2, 9);
   
   // 封面图片路径
   const coverImage = `/images/${isbn}.jpg`;
+  
+  // 调试信息
+  console.log('Book:', title);
+  console.log('ISBN:', isbn);
+  console.log('Cover image path:', coverImage);
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
@@ -20,7 +25,11 @@ const BookCard = ({ book }) => {
           alt={title} 
           className="w-full h-full object-cover"
           onError={(e) => {
+            console.log('Error loading image:', coverImage);
             e.target.src = 'https://via.placeholder.com/300x400?text=暂无封面';
+          }}
+          onLoad={(e) => {
+            console.log('Image loaded successfully:', coverImage);
           }}
         />
       </div>
